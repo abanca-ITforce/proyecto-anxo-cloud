@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from './layout/layout.component';
+import {RouterModule} from '@angular/router';
+
 import { NavShellComponent } from './nav-shell/nav-shell.component';
 import { LayoutModule as MaterialLayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,16 +12,20 @@ import { MatListModule } from '@angular/material/list';
 
 
 
+
 @NgModule({
-  declarations: [LayoutComponent, NavShellComponent],
+  declarations: [ NavShellComponent],
   imports: [
+    RouterModule,
     CommonModule,
     MaterialLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
-  ]
+    MatListModule,
+
+  ],
+  exports:[NavShellComponent]
 })
 export class LayoutModule { }
