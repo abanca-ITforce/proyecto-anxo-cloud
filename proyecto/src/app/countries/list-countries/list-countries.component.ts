@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CountriesServiceService } from 'src/app/countries-service.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-countries.component.css']
 })
 export class ListCountriesComponent implements OnInit {
+  countrieList;
 
-  constructor() { }
+  constructor(private cs:CountriesServiceService) {
+    this.cs.getCountrieList$().subscribe(data=>(this.countrieList=data));
+   }
 
   ngOnInit() {
   }

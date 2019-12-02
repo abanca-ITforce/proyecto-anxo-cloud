@@ -1,1 +1,8 @@
-<p>list-countries works!</p>
+<mat-nav-list *ngIf="countrieList$ | async as countrieList; else empty">
+    <a *ngFor="let task of taskList" mat-list-item [routerLink]="task._id">
+      {{ task.description }}
+    </a>
+  </mat-nav-list>
+  <ng-template #empty>
+    <h1>CARGANDO ...</h1>
+  </ng-template>
