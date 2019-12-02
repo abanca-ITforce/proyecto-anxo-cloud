@@ -13,10 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
+import { IdCountryComponent } from './id-country/id-country.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    IdCountryComponent,
   ],
   imports: [
     BrowserModule,

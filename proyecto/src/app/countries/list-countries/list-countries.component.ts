@@ -14,6 +14,7 @@ export class ListCountriesComponent implements OnInit {
 
   constructor(private cs: CountriesServiceService) {
     this.countrieList$ = cs.getCountrieList$();
+
    }
 
   ngOnInit() {

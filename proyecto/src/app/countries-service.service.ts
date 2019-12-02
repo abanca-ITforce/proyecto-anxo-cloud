@@ -14,4 +14,7 @@ export class CountriesServiceService {
   getCountrieList$() {
     return this.http.get<any[]>(this.url).pipe(map(data => (data[1])));
   }
+
+
+
 }
