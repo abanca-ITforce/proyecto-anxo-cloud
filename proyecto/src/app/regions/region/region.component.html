@@ -1,0 +1,7 @@
+<p>holahola</p>
+<app-region-card
+  *ngIf="Region$ | async as region; else empty"
+  [region]="region"
+>
+</app-region-card>
+<ng-template #empty>Loading...</ng-template>

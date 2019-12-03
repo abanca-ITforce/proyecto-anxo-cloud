@@ -9,9 +9,10 @@ import { CountriesServiceService } from 'src/app/countries-service.service';
 })
 export class ContryComponent implements OnInit {
   countryId: any;
+  countryId$;
   constructor(activatedRoute: ActivatedRoute, cs: CountriesServiceService) {
      this.countryId= activatedRoute.snapshot.params.id;
-
+     this.countryId$=cs.getCountryById$(this.countryId);
   }
 
   ngOnInit() {
