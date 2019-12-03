@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CountriesServiceService } from 'src/app/countries-service.service';
 
 @Component({
   selector: 'app-contry',
@@ -7,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./contry.component.css']
 })
 export class ContryComponent implements OnInit {
-  //country$;
-  constructor(activatedRoute: ActivatedRoute) {
-    const countryId= activatedRoute.snapshot.params.id;
-   // this.country$=
+  countryId: any;
+  constructor(activatedRoute: ActivatedRoute, cs: CountriesServiceService) {
+     this.countryId= activatedRoute.snapshot.params.id;
+
   }
 
   ngOnInit() {
