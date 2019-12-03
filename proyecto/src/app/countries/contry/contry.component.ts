@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contry',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contry.component.css']
 })
 export class ContryComponent implements OnInit {
-
-  constructor() { }
+  //country$;
+  constructor(activatedRoute: ActivatedRoute) {
+    const countryId= activatedRoute.snapshot.params.id;
+   // this.country$=
+  }
 
   ngOnInit() {
   }
