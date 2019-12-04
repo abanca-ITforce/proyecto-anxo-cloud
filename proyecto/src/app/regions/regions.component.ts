@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-regions',
@@ -10,9 +11,10 @@ import { ApiService } from '../api.service';
 })
 export class RegionsComponent implements OnInit {
   regions$: Observable<any[]>;
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,private ar : ActivatedRoute) { }
 
   ngOnInit() {
+    const regionCode= this.ar.snapshot.params.regionCode;
     this.regions$=this.api.getRegions$();
   }
 

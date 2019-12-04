@@ -1,6 +1,6 @@
 <p>holahola</p>
 <app-region-card
-  *ngIf="Region$ | async as region; else empty"
+  *ngIf="region$ | async as region; else empty"
   [region]="region"
 >
 </app-region-card>

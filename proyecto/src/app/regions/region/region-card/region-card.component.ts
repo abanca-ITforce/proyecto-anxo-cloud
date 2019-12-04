@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RegionCardComponent implements OnInit {
   @Input() region : any;
+  @Input () country: any;
   constructor() { }
 
   ngOnInit() {

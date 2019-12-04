@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from 'src/app/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-region',
@@ -9,15 +10,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
-  Region$;
-  regionCode : any;
+  region$ :Observable<any>;
+
   constructor(private api: ApiService,private ar: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-    this.regionCode =this.ar.snapshot.params.code;
-    this.Region$ = this.api.getRegionCode$(this.regionCode);
+    const regionCode =this.ar.snapshot.params.regionCode;
+    this.region$ = this.api.getRegionCode$(regionCode);
   }
 
 }

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegionComponent } from './region.component';
 
 const routes: Routes = [
-  { path: ':regionCode', component: RegionComponent }
+  { path: '', component: RegionComponent }
 ];
 
 @NgModule({

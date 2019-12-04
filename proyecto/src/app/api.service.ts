@@ -1,13 +1,17 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map,tap } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiService {
-  private endPoint = "https://api.worldbank.org/v2/country";
-  private format = "?per_page=1000&format=json";
+  private endPoint = 'https://api.worldbank.org/v2/country';
+  private format = '?per_page=1000&format=json';
+  private urlRegion = 'https://api.worldbank.org/v2/region/?format=json';
+  private endPointRegion = 'https://api.worldbank.org/v2/region/';
+
+
 
   constructor(private httpClient: HttpClient) {}
 
@@ -27,8 +31,12 @@ export class ApiService {
   }
 
   getRegionCode$(regionCode){
-    const url3='https://api.worldbank.org/v2/region' +'/'+ regionCode;
-    return this.httpClient.get<any>(url3).pipe(map(result =>result[1][0]));
+    const url69=this.endPointRegion + regionCode + this.format;
+console.log(regionCode);
+    //  https://api.worldbank.org/v2/region/  ++  ?per_page=1000&format=json
+    //  https://api.worldbank.org/v2/region/  ++  ?per_page=1000&format=json
+    //return this.httpClient.get<any>(url).pipe(map(result =>(result[1][0])));
+    return this.httpClient.get<any>(url69).pipe(tap(r => console.log(r)),map(result => result[1][0]));
   }
 
 
