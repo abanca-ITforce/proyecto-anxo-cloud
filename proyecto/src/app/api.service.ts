@@ -12,7 +12,8 @@ export class ApiService {
   private endPointRegion = 'https://api.worldbank.org/v2/region/';
   private endPointCountryByRegionCode='https://api.worldbank.org/v2/country?region=';
   private formatRegionById='&per_page=1000&format=json';
-
+  private incomeLevelurl='https://api.worldbank.org/v2/country?incomeLevel=';
+  //https://api.worldbank.org/v2/country?incomeLevel=UMC&per_page=1000&format=json
 
 
   constructor(private httpClient: HttpClient) {}
@@ -40,6 +41,12 @@ export class ApiService {
   getCountriesByRgionCode$(regionCode){
     const url =this.endPointCountryByRegionCode +regionCode +this.formatRegionById;
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
+  }
+
+  getCountriesByIncomeLevel$(incomeLevel){
+    const url='https://api.worldbank.org/v2/country?incomeLevel=' + incomeLevel + '&per_page=1000&format=json';
+    console.log(incomeLevel);
+    return this.httpClient.get<any[]>(url).pipe(tap(x=>console.log(x)),map(result => result[1]));
   }
 
 
