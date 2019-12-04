@@ -8,13 +8,14 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
+  searchForm;
 
-
-  constructor(private fb: FormBuilder) {
-
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.searchForm=this.fb.group({
+      incomeLevel: ''
+    });
   }
 
 }
