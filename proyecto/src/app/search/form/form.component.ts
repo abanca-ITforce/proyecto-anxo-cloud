@@ -18,4 +18,10 @@ export class FormComponent implements OnInit {
     });
   }
 
+  searchClcik(){
+    console.log('hola');
+  };
+
+
+
 }

@@ -1,3 +1,7 @@
-<form >
+<form [formGroup]="searchForm">
+  <label for="searchField">IncomeLevel</label>
+  <input type="text" name="searchField">
+  <button (click)="searchClcik()">Search!!</button>
+
 
 </form>
