@@ -28,19 +28,18 @@ export class ApiService {
   }
 
   getRegions$(){
-    const url2= 'https://api.worldbank.org/v2/region/?format=json';
+    const url2= this.urlRegion;
     return this.httpClient.get<any[]>(url2).pipe(map(result =>(result[1])));
   }
 
   getRegionCode$(regionCode){
     const url=this.endPointRegion + regionCode + this.format;
-    return this.httpClient.get<any>(url).pipe(tap(r => console.log(r)),map(result => result[1][0]));
+    return this.httpClient.get<any>(url).pipe(map(result => result[1][0]));
   }
 
   getCountriesByRgionCode$(regionCode){
     const url =this.endPointCountryByRegionCode +regionCode +this.formatRegionById;
-    return this.httpClient.get<any[]>(url).pipe(tap(r => console.log({r})),map(result => result[1]));
-
+    return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
 
 
