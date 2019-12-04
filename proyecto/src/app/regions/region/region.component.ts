@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class RegionComponent implements OnInit {
   region$ :Observable<any>;
+  countryByRegionCode$ : Observable<any[]>;
 
   constructor(private api: ApiService,private ar: ActivatedRoute) {
 
@@ -19,6 +20,7 @@ export class RegionComponent implements OnInit {
   ngOnInit() {
     const regionCode =this.ar.snapshot.params.regionCode;
     this.region$ = this.api.getRegionCode$(regionCode);
+    this.countryByRegionCode$=this.api.getCountriesByRgionCode$(regionCode);
   }
 
 }

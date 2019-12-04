@@ -10,6 +10,8 @@ export class ApiService {
   private format = '?per_page=1000&format=json';
   private urlRegion = 'https://api.worldbank.org/v2/region/?format=json';
   private endPointRegion = 'https://api.worldbank.org/v2/region/';
+  private endPointCountryByRegionCode='https://api.worldbank.org/v2/country?region=';
+  private formatRegionById='&per_page=1000&format=json';
 
 
 
@@ -31,12 +33,14 @@ export class ApiService {
   }
 
   getRegionCode$(regionCode){
-    const url69=this.endPointRegion + regionCode + this.format;
-console.log(regionCode);
-    //  https://api.worldbank.org/v2/region/  ++  ?per_page=1000&format=json
-    //  https://api.worldbank.org/v2/region/  ++  ?per_page=1000&format=json
-    //return this.httpClient.get<any>(url).pipe(map(result =>(result[1][0])));
-    return this.httpClient.get<any>(url69).pipe(tap(r => console.log(r)),map(result => result[1][0]));
+    const url=this.endPointRegion + regionCode + this.format;
+    return this.httpClient.get<any>(url).pipe(tap(r => console.log(r)),map(result => result[1][0]));
+  }
+
+  getCountriesByRgionCode$(regionCode){
+    const url =this.endPointCountryByRegionCode +regionCode +this.formatRegionById;
+    return this.httpClient.get<any[]>(url).pipe(tap(r => console.log({r})),map(result => result[1]));
+
   }
 
 
