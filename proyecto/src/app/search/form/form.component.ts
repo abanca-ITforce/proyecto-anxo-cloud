@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
   }
 
 
-  searchClcik(){
+  onSubmit(){
     const filter = this.searchForm.value;
     this.filter.emit(filter);
   };

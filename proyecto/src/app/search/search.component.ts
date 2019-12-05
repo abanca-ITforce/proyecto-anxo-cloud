@@ -8,15 +8,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  countries$: Observable<any>;
+  incomeLevels$: Observable<any>;
 
   constructor( private api: ApiService) { }
-  countriesIncomeLevel$ : Observable <any[]>;
+
+
   ngOnInit() {
-   // const incomeLevel='UMC';
-   // this.countriesIncomeLevel$=this.api.getCountriesByIncomeLevel$(incomeLevel);
+
+   this.incomeLevels$=this.api.getincomeLevel$();
   }
-  onSending(incomeLevel){
-    this.countriesIncomeLevel$ = this.api.getCountriesByIncomeLevel$(incomeLevel);
+  onFilter(filter) {
+    this.countries$ = this.api.getCountriesByFilter(filter);
   }
 
 }
