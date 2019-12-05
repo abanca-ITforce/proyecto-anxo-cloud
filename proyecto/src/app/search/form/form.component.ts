@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnInit, Output,Input, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -7,19 +7,23 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  @Input() incomeLevels: any[];
+  @Output() filter = new EventEmitter<any>();
+  searchForm: FormGroup;
 
-  searchForm;
-
+  incomeLevel;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.searchForm=this.fb.group({
+    this.searchForm = this.fb.group({
       incomeLevel: ''
     });
   }
 
+
   searchClcik(){
-    console.log('hola');
+    const filter = this.searchForm.value;
+    this.filter.emit(filter);
   };
 
 

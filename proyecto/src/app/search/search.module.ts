@@ -5,6 +5,10 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -13,8 +17,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     SearchRoutingModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    SharedModule,
+    MatCardModule,
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class SearchModule { }

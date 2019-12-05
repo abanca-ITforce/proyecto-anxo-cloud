@@ -12,8 +12,11 @@ export class SearchComponent implements OnInit {
   constructor( private api: ApiService) { }
   countriesIncomeLevel$ : Observable <any[]>;
   ngOnInit() {
-    const incomeLevel='UMC';
-    this.countriesIncomeLevel$=this.api.getCountriesByIncomeLevel$(incomeLevel);
+   // const incomeLevel='UMC';
+   // this.countriesIncomeLevel$=this.api.getCountriesByIncomeLevel$(incomeLevel);
+  }
+  onSending(incomeLevel){
+    this.countriesIncomeLevel$ = this.api.getCountriesByIncomeLevel$(incomeLevel);
   }
 
 }

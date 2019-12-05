@@ -1,2 +1,8 @@
 <!-- {{ countriesIncomeLevel$ | async | json }} -->
-<app-form></app-form>
+<app-form [incomeLevels]="incomeLevels$ | async"
+(filter)="onFilter($event)"
+>
+
+</app-form>
+
+<app-countries-list [countries]="countries$ | async"></app-countries-list>
