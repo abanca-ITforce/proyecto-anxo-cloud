@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  countries$: Observable<any>;
-  incomeLevels$: Observable<any>;
+  countries$: Observable<any[]>;
+  incomeLevels$: Observable<any[]>;
 
   constructor( private api: ApiService) { }
 

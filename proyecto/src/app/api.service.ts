@@ -53,7 +53,7 @@ export class ApiService {
 
 
   getincomeLevel$(){
-    const url=https://api.worldbank.org/v2/country + this.format;
+    const url='https://api.worldbank.org/v2/incomeLevel' + this.format;
     return this.httpClient.get<any[]>(url).pipe(tap(x=>console.log(x)),map(result => result[1]));
   }
 
